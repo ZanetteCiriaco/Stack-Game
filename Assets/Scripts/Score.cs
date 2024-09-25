@@ -38,7 +38,7 @@ public class Score: MonoBehaviour
 
     public void ShowMaxScore() {
         int maxScore = GetMaxScore();
-        maxScoreText.text = $"{maxScore}";
+        maxScoreText.text = $"Recorde: {maxScore}";
         maxScoreText.enabled = true;
     }
 

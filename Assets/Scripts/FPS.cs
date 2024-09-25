@@ -9,7 +9,6 @@ public class FPS : MonoBehaviour
     private float deltaTime = 0.0f;
 
     private void Start() {
-        QualitySettings.vSyncCount = 1;
 	    Application.targetFrameRate = (int)Screen.currentResolution.refreshRateRatio.numerator;
     }
 

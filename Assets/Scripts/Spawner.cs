@@ -13,7 +13,7 @@ public class Spawner : MonoBehaviour
     public ObjectPool BlockPool;
     private int returnBlockIndex = 0;
 
-    public void SpawnBlock(int stackCount) {
+    public void SpawnBlock(int stackCount, int colorLevel) {
         RemoveBlockFromEnd(stackCount);
 
         var poolGameObject = BlockPool.GetGameObjectFromPool();
@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
         poolGameObject.SetActive(true);
 
         block.moveAxis = moveAxis;
-        block.GetComponent<Renderer>().material.color = Color.HSVToRGB((stackCount / 100f) % 1f, 1f, 1f);
+        block.GetComponent<Renderer>().material.color = Color.HSVToRGB(((colorLevel + (stackCount * 3)) / 100f) % 1f, 1f, 1f);
     }
 
 

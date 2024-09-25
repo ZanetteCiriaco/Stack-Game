@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -22,6 +23,7 @@ public class Block : MonoBehaviour
     private float direction = -1f;
     public float overlapTolerance = 0.2f;
     public MoveAxis moveAxis {get; set;}
+    public GameObject perfectBlockEffectPrefab;
     public static Block currentBlock {get; private set; }
     public static Block previusBlock {get; private set; }
 
@@ -33,11 +35,11 @@ public class Block : MonoBehaviour
         transform.localScale = previusBlock.transform.localScale;  
     }
 
-    void Update()
+    private void Update() 
     {
         Move();
     }
-    
+
     private void Move() 
     {
         float position;
@@ -52,14 +54,26 @@ public class Block : MonoBehaviour
 
         if(Math.Abs(position) >= sideLimit) {
             direction = -direction;
-            // float excess = Mathf.Abs(position) - sideLimit;
-            // transform.position = new Vector3(
-            //     Mathf.Sign(position) * (sideLimit - excess), 
-            //     transform.position.y, 
-            //     transform.position.z
-            // );
+
+            if (moveAxis == MoveAxis.x) 
+            {
+                transform.position = new Vector3(
+                    Mathf.Sign(transform.position.x) * sideLimit,
+                    transform.position.y,
+                    transform.position.z
+                );
+            } 
+            else 
+            {
+                transform.position = new Vector3(
+                    transform.position.x,
+                    transform.position.y,
+                    Mathf.Sign(transform.position.z) * sideLimit
+                );
+            }
         }
     }
+    
     public PlaceBlockReturn PlaceBlock() {
         speed = 0;
         float maxSize = moveAxis == MoveAxis.x ? previusBlock.transform.localScale.x : previusBlock.transform.localScale.z;
@@ -75,6 +89,11 @@ public class Block : MonoBehaviour
         else if(overlapAbs <= Mathf.Abs(overlapTolerance)){
             transform.position = new Vector3(previusBlock.transform.position.x, transform.position.y, previusBlock.transform.position.z);
             previusBlock = this;
+            GameObject effect = Instantiate(perfectBlockEffectPrefab);
+            Vector3 blockScale = transform.localScale;
+            effect.transform.position = new Vector3(transform.position.x, transform.position.y - 0.1f, transform.position.z);
+            effect.transform.localScale = new Vector3(blockScale.x + 0.15f, blockScale.z + 0.15f, 1);
+            Destroy(effect, 0.7f);
             return PlaceBlockReturn.PerfectStack;
         }
 

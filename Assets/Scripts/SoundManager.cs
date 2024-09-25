@@ -5,9 +5,10 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     private AudioSource audioSource;
+    public AudioClip[] sequenceSounds;
     public AudioClip StartGame;
     public AudioClip CutBlock;
-    public AudioClip PerfectStack;
+    private int sequenceIndex = 0;
 
     private void Awake() {
         audioSource = GetComponent<AudioSource>();
@@ -23,11 +24,14 @@ public class SoundManager : MonoBehaviour
     }
 
     public void PerfectStackSound() {
-        PlaySound(PerfectStack);
+        sequenceIndex = sequenceIndex >= sequenceSounds.Length ? sequenceSounds.Length - 1: sequenceIndex;
+        audioSource.PlayOneShot(sequenceSounds[sequenceIndex]);
+        sequenceIndex++;
     }
 
     public void PartialStackSound() {
         PlaySound(CutBlock);
+        sequenceIndex = 0;
     }
 
     public void GameOverSound() {

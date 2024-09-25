@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 public class Main : MonoBehaviour
 {
@@ -17,12 +16,15 @@ public class Main : MonoBehaviour
     private int stackCount = 0;
     [SerializeField] Canvas Panel;
     private SoundManager soundManager;
+    private int colorLevel;
 
     private void Awake() {
         spawners = FindObjectsOfType<Spawner>();
         soundManager = GetComponent<SoundManager>();
     }
     private void Start() {
+        var random = new System.Random();
+        colorLevel = random.Next(0, 100);
         WaitingToStart();
     }
     public void HandleClick(InputAction.CallbackContext context) {
@@ -72,7 +74,7 @@ public class Main : MonoBehaviour
     private void SpawnNewBlock() {
         spawnerIndex = spawnerIndex == 0 ? 1 : 0;
         currentSpawner = spawners[spawnerIndex];
-        currentSpawner.SpawnBlock(stackCount);
+        currentSpawner.SpawnBlock(stackCount, colorLevel);
     }
     private void WaitingToStart() {
         HomeTextAlpha(1);
