@@ -7000,6 +7000,7 @@ MonoBehaviour:
   sideLimit: 1.5
   overlapTolerance: 0.2
   perfectBlockEffectPrefab: {fileID: 0}
+  fallingBlockPrefab: {fileID: 0}
 --- !u!1 &1704810073
 GameObject:
   m_ObjectHideFlags: 0

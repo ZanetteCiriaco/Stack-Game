@@ -24,6 +24,7 @@ public class Block : MonoBehaviour
     public float overlapTolerance = 0.2f;
     public MoveAxis moveAxis {get; set;}
     public GameObject perfectBlockEffectPrefab;
+    public GameObject fallingBlockPrefab;
     public static Block currentBlock {get; private set; }
     public static Block previusBlock {get; private set; }
 
@@ -133,7 +134,7 @@ public class Block : MonoBehaviour
     }
     private void FallingOverlapBlock(float suplusValue, bool isXAxis) {
         float over = Mathf.Abs(suplusValue);
-        var fallingBlock = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        var fallingBlock = Instantiate(fallingBlockPrefab);
         fallingBlock.GetComponent<Renderer>().material.color = currentBlock.GetComponent<Renderer>().material.color;
 
         float newPosition = isXAxis 
@@ -151,7 +152,5 @@ public class Block : MonoBehaviour
         fallingBlock.transform.position = isXAxis
             ? new Vector3(newPosition, transform.position.y, transform.position.z)
             : new Vector3(transform.position.x, transform.position.y, newPosition);
-
-        fallingBlock.AddComponent<Rigidbody>();
     }
 }
