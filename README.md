@@ -5,14 +5,14 @@ O Stack Game é um jogo simples onde o objetivo é empilhar blocos de forma prec
 
 Blocos são gerados automaticamente e se movem em um eixo definido (X ou Z). Ao parar o movimento, o bloco será posicionado, e se o jogador for preciso o suficiente, o jogo continua.
 
-![Tela inicial](https://drive.google.com/file/d/1fyP7zZT2CFfE_MzswTJJ3G3ErSP_xg4m/view?usp=sharing)
+![Tela inicial](https://drive.google.com/uc?id=1fyP7zZT2CFfE_MzswTJJ3G3ErSP_xg4m)
 *Tela inicial do jogo
 
-![Tela final](https://drive.google.com/file/d/1JHh2ejCNS0ZhXrKI86Cz2-ajou_q4kHn/view?usp=sharing)
+![Tela final](https://drive.google.com/uc?id=1JHh2ejCNS0ZhXrKI86Cz2-ajou_q4kHn)
 *Tela de Fim de jogo.
 
 ## Download
-- Baixe a versão executável (64bits) do jogo [aqui](https://drive.google.com/file/d/1YA7ZF4QvDhtzhGQ9SRhxMicZqTqLveEh/view?usp=sharing)
+- Baixe a versão executável (64bits) do jogo <a href="[https://www.google.com](https://drive.google.com/file/d/1YA7ZF4QvDhtzhGQ9SRhxMicZqTqLveEh/view?usp=sharing)" target="_blank" rel="noopener noreferrer">aqui</a>
 
 ## Funcionalidades
 
