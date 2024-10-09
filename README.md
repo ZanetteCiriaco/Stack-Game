@@ -12,7 +12,7 @@ Blocos são gerados automaticamente e se movem em um eixo definido (X ou Z). Ao 
 *Tela de Fim de jogo.
 
 ## Download
-- Baixe a versão executável (64bits) do jogo <a href="https://drive.google.com/file/d/1YA7ZF4QvDhtzhGQ9SRhxMicZqTqLveEh/view?usp=sharing" target="_blank" rel="noopener noreferrer">aqui</a>
+- Baixe a versão executável (Windows 64bits) do jogo <a href="https://drive.google.com/file/d/1YA7ZF4QvDhtzhGQ9SRhxMicZqTqLveEh/view?usp=sharing" target="_blank" rel="noopener noreferrer">aqui</a>
 
 ## Funcionalidades
 
